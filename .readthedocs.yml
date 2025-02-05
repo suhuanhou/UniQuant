@@ -12,5 +12,5 @@ build:
 
 # Configuration for Sphinx documentation
 sphinx:
-   configuration: docs/conf.py
+   configuration: source/conf.py
    fail_on_warning: true
