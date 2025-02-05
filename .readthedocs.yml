@@ -1,16 +1,19 @@
+# .readthedocs.yml
 # Read the Docs configuration file
 # See https://docs.readthedocs.io/en/stable/config-file/v2.html for details
 
 # Required
 version: 2
 
-# Set the version of Python
-build:
-  os: ubuntu-22.04
-  tools:
-    nodejs: "20"
-
-# Configuration for Sphinx documentation
+# Build documentation in the docs/ directory with Sphinx
 sphinx:
-   configuration: source/conf.py
-   fail_on_warning: true
+  configuration: source/conf.py
+
+# Build documentation with MkDocs
+#mkdocs:
+#  configuration: mkdocs.yml
+
+
+# Optionally set the version of Python and requirements required to build your docs
+python:
+  version: 3.7
