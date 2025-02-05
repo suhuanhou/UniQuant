@@ -256,7 +256,7 @@ p = ggroc(res, legacy.axes = TRUE)+
   ) + labs(colour = "Gene") + 
   annotate("text", x=0.50, y=0.02, size = 7.5, label=paste("Model-AUC = ", round(res$Model$auc,3))); p
 ```
-![图片描述](/image/2.ROC_Gene_Training.png)
+![图片描述](./image/2.ROC_Gene_Training.png)
 
 
 <span style="font-size: 20px;">⭕
