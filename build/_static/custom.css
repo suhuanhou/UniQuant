@@ -1,0 +1,12 @@
+/* _static/custom.css */
+body {
+    font-size: 16px; /* 设置全局字体大小 */
+}
+
+h1 {
+    font-size: 24px; /* 设置标题字体大小 */
+}
+
+.custom-text {
+    font-size: 20px; /* 自定义类字体大小 */
+}

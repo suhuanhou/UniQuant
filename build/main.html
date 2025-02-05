@@ -1,0 +1,1062 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UniQuant 🧬 &mdash; UniQuant 1.0.0 文档</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=6ad546ec" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=34088549"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/translations.js?v=beaddf03"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="prev" title="UniQuant documentation" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            UniQuant
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="搜索文档" aria-label="搜索文档" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">UniQuant  🧬</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#quick-run">Quick run  🚀</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1"></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#comprehensive-guide">Comprehensive Guide  📖</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#setting">0️⃣ Setting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2"></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#quantile-score">1️⃣ Quantile score</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id3"></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#select-the-genes-of-interest">2️⃣ Select the genes of interest</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id4"></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#diagnostic-model">3️⃣ Diagnostic model</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#disease-related-gene">3.1 Disease-related gene</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#training-diagnostic-model">3.2 Training diagnostic model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#validation-of-diagnostic-model">3.3 Validation of diagnostic model</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id5"></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#molecular-classification">4️⃣ Molecular classification</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#classification">4.1 Classification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#survival-analysis">4.2 Survival analysis</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id6"></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#differential-gene-expression-deg-analysis">5️⃣ Differential gene expression (DEG) analysis.</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#deg-disease">5.1 DEG：Disease</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#deg-class">5.2 DEG：Class</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id7"></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#all-functions">All functions 🔧</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id8">Quantile_score</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#uniquant-hypervariable-gene">UniQuant_Hypervariable_gene</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#uniquant-disease-gene">UniQuant_Disease_gene</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#uniquant-model-training">UniQuant_Model_Training</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#uniquant-model-validation">UniQuant_Model_Validation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#uniquant-model-dataset-auc">UniQuant_Model_dataset_AUC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#uniquant-remove-dataset">UniQuant_Remove_dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#uniquant-class">UniQuant_Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#uniquant-deg-disease">UniQuant_DEG_Disease</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#uniquant-deg-class">UniQuant_DEG_Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#uniquant-dataset">UniQuant_dataset</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id9"></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#reference">Reference 🔖</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="移动版导航菜单" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">UniQuant</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="页面导航">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">UniQuant  🧬</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/main.md.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="uniquant">
+<h1>UniQuant  🧬<a class="headerlink" href="#uniquant" title="Link to this heading"></a></h1>
+<p>🧰 Name: Universal Quantile-Based Transcriptome Integration (R package)<br />✍️ Author: Huanhou Su</p>
+<p><strong>Symbol</strong><br />🚩 - Functions</p>
+<p>⭕ - Optional operations</p>
+<p>❓ - Questions</p>
+<p>❌ ❗ ‼️ ⁉️ ⭕ ✖️ ➕ ➖ ➗ ✔️ 👀❗❓</p>
+</section>
+<section id="quick-run">
+<h1>Quick run  🚀<a class="headerlink" href="#quick-run" title="Link to this heading"></a></h1>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>##### 1. Quantile score
+## Prepare raw data
+# ls_datasset: Name of the dataset.
+# df_raw: Raw expression data, with genes as rows and samples as columns.
+# dataset_type: &#39;Training&#39; or &#39;Validation&#39;.
+# df_Disease: The first column is the sample name, the second column is the disease status (&#39;No&#39; represents non-diseased samples, &#39;Yes&#39; represents diseased samples). If survival information is available, the third column is the survival outcome (0 represents survival, 1 represents death), and the fourth column is the follow-up time (in months). Non-diseased samples do not need to have survival information filled in.
+Quantile_score(ls_datasset, df_raw, dataset_type, df_Disease)
+
+##### 2. Select the genes of interest
+rst_Hype = UniQuant_Hypervariable_gene(n_hypervariable_gene = 1000)  
+interest_gene = rst_Hype$Gene
+
+##### 3. Training and Validation of the Diagnostic Model
+rst_dg = UniQuant_Disease_gene(ls_gene = interest_gene)  
+Disease_gene = rst_dg$Disease_gene
+
+rst_Training = UniQuant_Model_Training(ls_gene = Disease_gene) 
+rst_Validation = UniQuant_Model_Validation()
+
+##### 4. Molecular classification
+rst_Class = UniQuant_Class(ls_gene = interest_gene, n_Class = 3)  
+
+##### 5. Subsequent analyses: survival analysis, differential gene expression analysis, enrichment analysis, etc.
+</pre></div>
+</div>
+<section id="id1">
+<h2><a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+</section>
+</section>
+<section id="comprehensive-guide">
+<h1>Comprehensive Guide  📖<a class="headerlink" href="#comprehensive-guide" title="Link to this heading"></a></h1>
+<section id="setting">
+<h2>0️⃣ Setting<a class="headerlink" href="#setting" title="Link to this heading"></a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">library</span><span class="p">(</span><span class="n">ggplot2</span><span class="p">);</span> <span class="n">library</span><span class="p">(</span><span class="n">edgeR</span><span class="p">)</span> <span class="p">;</span> <span class="n">library</span><span class="p">(</span><span class="n">pROC</span><span class="p">);</span> <span class="n">library</span><span class="p">(</span><span class="n">stringr</span><span class="p">)</span>
+
+<span class="n">dir_main</span> <span class="o">=</span> <span class="n">getwd</span><span class="p">()</span>
+<span class="n">dir_in</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">path</span><span class="p">(</span><span class="n">dir_main</span><span class="p">,</span> <span class="s1">&#39;0.raw&#39;</span><span class="p">)</span>
+<span class="n">setwd</span><span class="p">(</span><span class="n">dir_main</span><span class="p">);</span> <span class="nb">set</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+<section id="id2">
+<h3><a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+</section>
+</section>
+<section id="quantile-score">
+<h2>1️⃣ Quantile score<a class="headerlink" href="#quantile-score" title="Link to this heading"></a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">##### Converts raw expression data of a dataset into quantile-based scores and organizes the disease status of the samples.</span>
+<span class="c1">#### Training set</span>
+<span class="n">ls_datassets</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="s1">&#39;GSE6764&#39;</span><span class="p">,</span> <span class="s1">&#39;GSE14520&#39;</span><span class="p">,</span> <span class="s1">&#39;GSE17856&#39;</span><span class="p">,</span> <span class="s1">&#39;GSE57957&#39;</span><span class="p">,</span> <span class="s1">&#39;GSE36376&#39;</span><span class="p">,</span><span class="s1">&#39;GSE102079&#39;</span><span class="p">,</span> <span class="s1">&#39;GSE54236&#39;</span><span class="p">,</span> <span class="s1">&#39;GSE36411&#39;</span><span class="p">,</span> <span class="s1">&#39;GSE22058&#39;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="n">ls_datasset</span> <span class="ow">in</span> <span class="n">ls_datassets</span><span class="p">){</span>
+  <span class="n">df_raw</span> <span class="o">=</span> <span class="n">readRDS</span><span class="p">(</span><span class="n">file</span><span class="o">.</span><span class="n">path</span><span class="p">(</span><span class="n">dir_in</span><span class="p">,</span> <span class="n">paste0</span><span class="p">(</span><span class="n">ls_datasset</span><span class="p">,</span> <span class="s1">&#39;_Expression.rds&#39;</span><span class="p">)))</span>
+  <span class="n">df_Disease</span> <span class="o">=</span> <span class="n">readRDS</span><span class="p">(</span><span class="n">file</span><span class="o">.</span><span class="n">path</span><span class="p">(</span><span class="n">dir_in</span><span class="p">,</span> <span class="n">paste0</span><span class="p">(</span><span class="n">ls_datasset</span><span class="p">,</span> <span class="s1">&#39;_Disease.rds&#39;</span><span class="p">)))</span>
+  <span class="n">Quantile_score</span><span class="p">(</span><span class="n">ls_datasset</span><span class="p">,</span> <span class="n">df_raw</span><span class="p">,</span> <span class="s2">&quot;Training&quot;</span><span class="p">,</span> <span class="n">df_Disease</span><span class="p">)</span>
+<span class="p">}</span>
+
+
+<span class="c1">#### Validation set</span>
+<span class="n">ls_datassets</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="s1">&#39;PMID31585088&#39;</span><span class="p">,</span> <span class="s1">&#39;PMID35382356&#39;</span><span class="p">,</span> <span class="s1">&#39;GSE77314&#39;</span><span class="p">,</span> <span class="s1">&#39;GSE76427&#39;</span><span class="p">,</span><span class="s1">&#39;GSE25097&#39;</span><span class="p">,</span> <span class="s1">&#39;GSE63898&#39;</span><span class="p">,</span> <span class="s1">&#39;GSE39791&#39;</span><span class="p">,</span> <span class="s1">&#39;GSE144269&#39;</span><span class="p">,</span><span class="s1">&#39;GSE114564&#39;</span><span class="p">,</span> <span class="s1">&#39;GSE14811&#39;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="n">ls_datasset</span> <span class="ow">in</span> <span class="n">ls_datassets</span><span class="p">){</span>
+  <span class="n">df_raw</span> <span class="o">=</span> <span class="n">readRDS</span><span class="p">(</span><span class="n">file</span><span class="o">.</span><span class="n">path</span><span class="p">(</span><span class="n">dir_in</span><span class="p">,</span> <span class="n">paste0</span><span class="p">(</span><span class="n">ls_datasset</span><span class="p">,</span> <span class="s1">&#39;_Expression.rds&#39;</span><span class="p">)))</span>
+  <span class="n">df_Disease</span> <span class="o">=</span> <span class="n">readRDS</span><span class="p">(</span><span class="n">file</span><span class="o">.</span><span class="n">path</span><span class="p">(</span><span class="n">dir_in</span><span class="p">,</span> <span class="n">paste0</span><span class="p">(</span><span class="n">ls_datasset</span><span class="p">,</span> <span class="s1">&#39;_Disease.rds&#39;</span><span class="p">)))</span>
+  <span class="n">Quantile_score</span><span class="p">(</span><span class="n">ls_datasset</span><span class="p">,</span> <span class="n">df_raw</span><span class="p">,</span> <span class="s2">&quot;Validation&quot;</span><span class="p">,</span> <span class="n">df_Disease</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+<p><span style="font-size: 20px;">⭕
+<strong>You can also transform individual datasets.</strong>
+</span></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ls_datasset</span> <span class="o">=</span> <span class="s1">&#39;GSE36376&#39;</span>
+<span class="n">df_raw</span> <span class="o">=</span> <span class="n">readRDS</span><span class="p">(</span><span class="n">file</span><span class="o">.</span><span class="n">path</span><span class="p">(</span><span class="n">dir_in</span><span class="p">,</span> <span class="n">paste0</span><span class="p">(</span><span class="n">ls_datasset</span><span class="p">,</span> <span class="s1">&#39;_Expression.rds&#39;</span><span class="p">)))</span>
+<span class="n">df_Disease</span> <span class="o">=</span> <span class="n">readRDS</span><span class="p">(</span><span class="n">file</span><span class="o">.</span><span class="n">path</span><span class="p">(</span><span class="n">dir_in</span><span class="p">,</span> <span class="n">paste0</span><span class="p">(</span><span class="n">ls_datasset</span><span class="p">,</span> <span class="s1">&#39;_Disease.rds&#39;</span><span class="p">)))</span>
+<span class="n">Quantile_score</span><span class="p">(</span><span class="n">ls_datasset</span><span class="p">,</span> <span class="n">df_raw</span><span class="p">,</span> <span class="s2">&quot;Validation&quot;</span><span class="p">,</span> <span class="n">df_Disease</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><span style="font-size: 20px;">⭕
+<strong>The data format of the raw gene expression data is as follows.</strong>
+</span></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df_raw</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>
+</pre></div>
+</div>
+<div align="center"> <table border="1" class="docutils">
+<thead>
+<tr>
+<th style="text-align: center;"></th>
+<th style="text-align: center;">GSM890128</th>
+<th style="text-align: center;">GSM890129</th>
+<th style="text-align: center;">GSM890130</th>
+<th style="text-align: center;">GSM890131</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">EEF1A1</td>
+<td style="text-align: center;">14.054179</td>
+<td style="text-align: center;">14.395189</td>
+<td style="text-align: center;">14.349301</td>
+<td style="text-align: center;">14.183636</td>
+</tr>
+<tr>
+<td style="text-align: center;">LOC643334</td>
+<td style="text-align: center;">6.543733</td>
+<td style="text-align: center;">6.399822</td>
+<td style="text-align: center;">6.391479</td>
+<td style="text-align: center;">6.190396</td>
+</tr>
+<tr>
+<td style="text-align: center;">SLC35E2</td>
+<td style="text-align: center;">6.065169</td>
+<td style="text-align: center;">6.172510</td>
+<td style="text-align: center;">5.957617</td>
+<td style="text-align: center;">5.980207</td>
+</tr>
+<tr>
+<td style="text-align: center;">LOC642820</td>
+<td style="text-align: center;">6.862825</td>
+<td style="text-align: center;">6.699461</td>
+<td style="text-align: center;">6.726557</td>
+<td style="text-align: center;">6.664170</td>
+</tr>
+</tbody>
+</table></div>   <p><span style="font-size: 20px;">⭕
+<strong>The data format of the transformed gene expression data is as follows.</strong>
+</span></p>
+<div align="center">  <table border="1" class="docutils">
+<thead>
+<tr>
+<th style="text-align: center;"></th>
+<th style="text-align: center;">GSE36376@GSM890128</th>
+<th style="text-align: center;">GSE36376@GSM890129</th>
+<th style="text-align: center;">GSE36376@GSM890130</th>
+<th style="text-align: center;">GSE36376@GSM890131</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">EEF1A1</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">9</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">6</td>
+</tr>
+<tr>
+<td style="text-align: center;">LOC643334</td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">4</td>
+</tr>
+<tr>
+<td style="text-align: center;">SLC35E2</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr>
+<td style="text-align: center;">LOC642820</td>
+<td style="text-align: center;">9</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">4</td>
+</tr>
+</tbody>
+</table></div>   <p><span style="font-size: 20px;">⭕
+<strong>The data format for the disease status of the samples is as follows.</strong>
+</span></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">rbind</span><span class="p">(</span><span class="n">head</span><span class="p">(</span><span class="n">df_Disease</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">tail</span><span class="p">(</span><span class="n">df_Disease</span><span class="p">,</span> <span class="mi">4</span><span class="p">)))</span>
+</pre></div>
+</div>
+<div align="center">  <table border="1" class="docutils">
+<thead>
+<tr>
+<th style="text-align: center;">Sample</th>
+<th style="text-align: center;">Disease</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">GSM890128</td>
+<td style="text-align: center;">No</td>
+</tr>
+<tr>
+<td style="text-align: center;">GSM890129</td>
+<td style="text-align: center;">No</td>
+</tr>
+<tr>
+<td style="text-align: center;">GSM890130</td>
+<td style="text-align: center;">No</td>
+</tr>
+<tr>
+<td style="text-align: center;">GSM890131</td>
+<td style="text-align: center;">No</td>
+</tr>
+<tr>
+<td style="text-align: center;">GSM890557</td>
+<td style="text-align: center;">Yes</td>
+</tr>
+<tr>
+<td style="text-align: center;">GSM890558</td>
+<td style="text-align: center;">Yes</td>
+</tr>
+<tr>
+<td style="text-align: center;">GSM890559</td>
+<td style="text-align: center;">Yes</td>
+</tr>
+<tr>
+<td style="text-align: center;">GSM890560</td>
+<td style="text-align: center;">Yes</td>
+</tr>
+</tbody>
+</table></div>   <p><span style="font-size: 20px;">⭕
+<strong>If your samples contain survival information, you can add columns for survival status (<code>Outcome</code>: 0 represents survival, 1 represents death) and survival time (<code>Time</code>: months).Note that only diseased samples require the addition of survival information.</strong>
+</span></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ls_datasset</span> <span class="o">=</span> <span class="s1">&#39;GSE14520&#39;</span>
+<span class="n">df_Disease</span> <span class="o">=</span> <span class="n">readRDS</span><span class="p">(</span><span class="n">file</span><span class="o">.</span><span class="n">path</span><span class="p">(</span><span class="n">dir_in</span><span class="p">,</span> <span class="n">paste0</span><span class="p">(</span><span class="n">ls_datasset</span><span class="p">,</span> <span class="s1">&#39;_Disease.rds&#39;</span><span class="p">)))</span>
+<span class="n">head</span><span class="p">(</span><span class="n">df_Disease</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+<div align="center">  <table border="1" class="docutils">
+<thead>
+<tr>
+<th>Sample</th>
+<th>Disease</th>
+<th>Outcome</th>
+<th>Time</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GSM362958</td>
+<td>Yes</td>
+<td>1</td>
+<td>28.2</td>
+</tr>
+<tr>
+<td>GSM362959</td>
+<td>Yes</td>
+<td>1</td>
+<td>9.5</td>
+</tr>
+<tr>
+<td>GSM362960</td>
+<td>Yes</td>
+<td>0</td>
+<td>66.1</td>
+</tr>
+<tr>
+<td>GSM362961</td>
+<td>No</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>   <section id="id3">
+<h3><a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
+</section>
+</section>
+<section id="select-the-genes-of-interest">
+<h2>2️⃣ Select the genes of interest<a class="headerlink" href="#select-the-genes-of-interest" title="Link to this heading"></a></h2>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="c1"># Select the hypervariable genes that are expressed across the majority of the datasets.</span>
+<span class="n">rst_Hype</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">UniQuant_Hypervariable_gene</span><span class="p">(</span><span class="n">n_hypervariable_gene</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1000</span><span class="p">,</span><span class="w"> </span><span class="n">dataset_threshold</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.7</span><span class="p">)</span><span class="w">  </span>
+<span class="n">interest_gene</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rst_Hype</span><span class="o">$</span><span class="n">Gene</span>
+
+<span class="n">interest_gene</span>
+<span class="w"> </span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="s">&quot;ACSL4&quot;</span><span class="w">   </span><span class="s">&quot;AFP&quot;</span><span class="w">     </span><span class="s">&quot;AKR1B10&quot;</span><span class="w"> </span><span class="s">&quot;ALDH3A1&quot;</span><span class="w"> </span><span class="s">&quot;APOA4&quot;</span><span class="w">   </span><span class="s">&quot;APOF&quot;</span><span class="w">    </span><span class="s">&quot;C7&quot;</span><span class="w">      </span><span class="s">&quot;C9&quot;</span><span class="w">      </span><span class="s">&quot;CCL19&quot;</span><span class="w">  </span>
+<span class="p">[</span><span class="m">10</span><span class="p">]</span><span class="w"> </span><span class="s">&quot;CCL20&quot;</span><span class="w">   </span><span class="s">&quot;COL1A1&quot;</span><span class="w">  </span><span class="s">&quot;CRP&quot;</span><span class="w">     </span><span class="s">&quot;CTHRC1&quot;</span><span class="w">  </span><span class="s">&quot;CYP1A2&quot;</span><span class="w">  </span><span class="s">&quot;CYP3A4&quot;</span><span class="w">  </span><span class="s">&quot;DCN&quot;</span><span class="w">     </span><span class="s">&quot;DHRS2&quot;</span><span class="w">   </span><span class="s">&quot;DKK1&quot;</span><span class="w">   </span>
+<span class="p">[</span><span class="m">19</span><span class="p">]</span><span class="w"> </span><span class="s">&quot;DLK1&quot;</span><span class="w">    </span><span class="s">&quot;EPCAM&quot;</span><span class="w">   </span><span class="s">&quot;FCN3&quot;</span><span class="w">    </span><span class="s">&quot;FOS&quot;</span><span class="w">     </span><span class="s">&quot;FOSB&quot;</span><span class="w">    </span><span class="s">&quot;GPC3&quot;</span><span class="w">    </span><span class="s">&quot;GPR88&quot;</span><span class="w">   </span><span class="s">&quot;HAMP&quot;</span><span class="w">    </span><span class="s">&quot;HSD11B1&quot;</span>
+<span class="p">[</span><span class="m">28</span><span class="p">]</span><span class="w"> </span><span class="s">&quot;IFI27&quot;</span><span class="w">   </span><span class="s">&quot;LCN2&quot;</span><span class="w">    </span><span class="s">&quot;LUM&quot;</span><span class="w">     </span><span class="s">&quot;MME&quot;</span><span class="w">     </span><span class="s">&quot;MMP7&quot;</span><span class="w">    </span><span class="s">&quot;MT1M&quot;</span><span class="w">    </span><span class="s">&quot;MUC13&quot;</span><span class="w">   </span><span class="s">&quot;MYH4&quot;</span><span class="w">    </span><span class="s">&quot;NQO1&quot;</span><span class="w">   </span>
+<span class="p">[</span><span class="m">37</span><span class="p">]</span><span class="w"> </span><span class="s">&quot;NTS&quot;</span><span class="w">     </span><span class="s">&quot;PAGE4&quot;</span><span class="w">   </span><span class="s">&quot;PEG10&quot;</span><span class="w">   </span><span class="s">&quot;PGC&quot;</span><span class="w">     </span><span class="s">&quot;PLA2G2A&quot;</span><span class="w"> </span><span class="s">&quot;REG3A&quot;</span><span class="w">   </span><span class="s">&quot;RELN&quot;</span><span class="w">    </span><span class="s">&quot;S100P&quot;</span><span class="w">   </span><span class="s">&quot;SDS&quot;</span><span class="w">    </span>
+<span class="p">[</span><span class="m">46</span><span class="p">]</span><span class="w"> </span><span class="s">&quot;SLC22A1&quot;</span><span class="w"> </span><span class="s">&quot;SLPI&quot;</span><span class="w">    </span><span class="s">&quot;SPINK1&quot;</span><span class="w">  </span><span class="s">&quot;SPP1&quot;</span><span class="w">   </span>
+</pre></div>
+</div>
+<p><span style="font-size: 20px;">⭕
+<strong>You can enter other genes of interest, such as immune genes, metabolic genes, cell cycle genes, etc.</strong>
+</span></p>
+<section id="id4">
+<h3><a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
+</section>
+</section>
+<section id="diagnostic-model">
+<h2>3️⃣ Diagnostic model<a class="headerlink" href="#diagnostic-model" title="Link to this heading"></a></h2>
+<section id="disease-related-gene">
+<h3>3.1 Disease-related gene<a class="headerlink" href="#disease-related-gene" title="Link to this heading"></a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>rst_dg = UniQuant_Disease_gene(ls_gene = interest_gene, disease_threshold = 0.7)  
+Disease_gene = rst_dg$Disease_gene
+
+Disease_gene
+ [1] &quot;ACSL4&quot;   &quot;AKR1B10&quot; &quot;APOA4&quot;   &quot;APOF&quot;    &quot;C7&quot;      &quot;C9&quot;      &quot;CCL19&quot;  
+ [8] &quot;CCL20&quot;   &quot;CTHRC1&quot;  &quot;CYP1A2&quot;  &quot;CYP3A4&quot;  &quot;DCN&quot;     &quot;FCN3&quot;    &quot;FOS&quot;    
+[15] &quot;FOSB&quot;    &quot;GPC3&quot;    &quot;HAMP&quot;    &quot;HSD11B1&quot; &quot;LUM&quot;     &quot;MME&quot;     &quot;MT1M&quot;   
+[22] &quot;MUC13&quot;   &quot;PEG10&quot;   &quot;SDS&quot;     &quot;SLC22A1&quot; &quot;SPINK1&quot; 
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="training-diagnostic-model">
+<h3>3.2 Training diagnostic model<a class="headerlink" href="#training-diagnostic-model" title="Link to this heading"></a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rst_Training</span> <span class="o">=</span> <span class="n">UniQuant_Model_Training</span><span class="p">(</span><span class="n">ls_gene</span> <span class="o">=</span> <span class="n">Disease_gene</span><span class="p">)</span> 
+
+<span class="n">names</span><span class="p">(</span><span class="n">rst_Training</span><span class="p">)</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="s2">&quot;Model_gene&quot;</span>     <span class="s2">&quot;AUC&quot;</span>            <span class="s2">&quot;Cutoff&quot;</span>         <span class="s2">&quot;Coefficient&quot;</span>   
+<span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="s2">&quot;ROC_Model_plot&quot;</span> <span class="s2">&quot;ROC_Gene_plot&quot;</span>  <span class="s2">&quot;ROC_Model_data&quot;</span> <span class="s2">&quot;ROC_Gene_data&quot;</span>  
+
+<span class="c1"># Model_gene: The genes used to construct the diagnostic model.</span>
+<span class="c1"># AUC: The AUC value of the diagnostic model in the Training set.</span>
+<span class="c1"># Cutoff: The sensitivity, specificity, and accuracy performance of the diagnostic model when the threshold is set to 0.5.</span>
+<span class="c1"># Coefficient: The correlation coefficient of the model genes.</span>
+<span class="c1"># ROC_Model_plot: The ROC curve plot of the diagnostic model in the Training set.</span>
+<span class="c1"># ROC_Gene_plot: The ROC curve plot of the diagnostic model and its genes in the Training set.</span>
+<span class="c1"># ROC_Model_data: The data used to plot the ROC curve of the diagnostic model in the Training set.</span>
+<span class="c1"># ROC_Gene_data: The data used to plot the ROC curve of the diagnostic model and its genes in the Training set.</span>
+</pre></div>
+</div>
+<p><img alt="图片描述" src="file:///F:/R_LT/20250126%20UniQuant/101.image/2.ROC_Model_Training.png" /></p>
+<p><span style="font-size: 20px;">⭕
+<strong>You can extract the data from <code>rst_Training</code> and plot the receiver operating characteristic (ROC) curve of the diagnostic model for the Training set.</strong>
+</span></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>res = rst_Training$ROC_Gene_data
+p = ggroc(res, legacy.axes = TRUE)+
+  geom_segment(aes(x = 0, xend = 1, y = 0, yend = 1), color=&quot;darkgrey&quot;, linetype=4)+
+  theme_bw() + 
+  ggtitle(&quot;Training set&quot;)+
+  theme(plot.title = element_text(hjust = 0.5,size = 25),
+        axis.title.x = element_text(size = 20),
+        axis.title.y = element_text(size = 20),
+        axis.text=element_text(size=12,colour = &quot;black&quot;),
+        panel.border = element_rect(color = &quot;black&quot;, fill = NA, size = 1.5), 
+        
+  ) + labs(colour = &quot;Gene&quot;) + 
+  annotate(&quot;text&quot;, x=0.50, y=0.02, size = 7.5, label=paste(&quot;Model-AUC = &quot;, round(res$Model$auc,3))); p
+</pre></div>
+</div>
+<p><img alt="图片描述" src="file:///F:/R_LT/20250126%20UniQuant/101.image/2.ROC_Gene_Training.png" /></p>
+<p><span style="font-size: 20px;">⭕
+<strong>View the model genes and their corresponding coefficients.</strong>
+</span></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>rst_Training$Coefficient
+</pre></div>
+</div>
+<div align="center">   <table border="1" class="docutils">
+<thead>
+<tr>
+<th>gene</th>
+<th>coefficient</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DCN</td>
+<td>-0.33802661</td>
+</tr>
+<tr>
+<td>CYP1A2</td>
+<td>-0.26176605</td>
+</tr>
+<tr>
+<td>HAMP</td>
+<td>-0.26145613</td>
+</tr>
+<tr>
+<td>FOS</td>
+<td>-0.24085125</td>
+</tr>
+<tr>
+<td>CCL19</td>
+<td>-0.17432534</td>
+</tr>
+<tr>
+<td>MME</td>
+<td>-0.16998127</td>
+</tr>
+<tr>
+<td>APOA4</td>
+<td>-0.16885766</td>
+</tr>
+<tr>
+<td>PEG10</td>
+<td>-0.08975637</td>
+</tr>
+<tr>
+<td>HSD11B1</td>
+<td>0.13580332</td>
+</tr>
+<tr>
+<td>SPINK1</td>
+<td>0.15481402</td>
+</tr>
+<tr>
+<td>GPC3</td>
+<td>0.21975622</td>
+</tr>
+<tr>
+<td>CTHRC1</td>
+<td>0.24801502</td>
+</tr>
+<tr>
+<td>AKR1B10</td>
+<td>0.25147663</td>
+</tr>
+</tbody>
+</table></div>  <p><span style="font-size: 20px;">⭕
+<strong>You can extract the model genes and their corresponding coefficients, and visualize the output.</strong>
+</span></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>df_plot = rst_Training$Coefficient
+df_plot$gene = df_plot$gene
+df_plot$coefficient = round(df_plot$coefficient, 3)
+
+
+p1 = ggplot(df_plot) +
+  geom_col(aes(x = reorder(str_wrap(gene, 8), coefficient),
+               y = coefficient, fill = coefficient),
+          position = &quot;dodge2&quot;,
+          show.legend = TRUE, alpha = .9
+          ) +
+  geom_segment(aes(
+      x = reorder(str_wrap(gene, 8), coefficient), y = 0,
+      xend = reorder(str_wrap(gene, 8), coefficient), yend = max(coefficient)), 
+      linetype = &quot;dashed&quot;, color = &quot;gray12&quot;) + coord_polar(); p1
+
+p2 = p1 +
+  scale_fill_gradientn(
+    &quot;Coefficient&quot;,
+    colours = c( &quot;#6C5B7B&quot;,&quot;#C06C84&quot;,&quot;#F67280&quot;,&quot;#F8B195&quot;)
+  ) +
+  guides(
+    fill = guide_colorsteps(
+    barwidth = 15, barheight = .5, title.position = &quot;top&quot;, title.hjust = .5
+    )) + theme_minimal()+
+  theme(
+    axis.title = element_blank(),
+    axis.ticks = element_blank(),
+    axis.text.y = element_blank(),
+    axis.text.x = element_text(color = &quot;gray10&quot;, size = 12, face = &quot;bold&quot;),
+    legend.position = &quot;bottom&quot;,
+    legend.title = element_text(color = &quot;gray30&quot;,size = 14, face = &quot;bold&quot;),
+    legend.text = element_text(size = 12) 
+  ); p2
+</pre></div>
+</div>
+<p><img alt="图片描述" src="file:///F:/R_LT/20250126%20UniQuant/101.image/2.coefficient.png" /></p>
+</section>
+<hr class="docutils" />
+<section id="validation-of-diagnostic-model">
+<h3>3.3 Validation of diagnostic model<a class="headerlink" href="#validation-of-diagnostic-model" title="Link to this heading"></a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rst_Validation</span> <span class="o">=</span> <span class="n">UniQuant_Model_Validation</span><span class="p">()</span>
+
+<span class="n">names</span><span class="p">(</span><span class="n">rst_Validation</span><span class="p">)</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="s2">&quot;AUC&quot;</span>            <span class="s2">&quot;Cutoff&quot;</span>         <span class="s2">&quot;ROC_Model_plot&quot;</span>
+<span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="s2">&quot;ROC_Gene_plot&quot;</span>  <span class="s2">&quot;ROC_Model_data&quot;</span> <span class="s2">&quot;ROC_Gene_data&quot;</span> 
+
+<span class="c1"># AUC: The AUC value of the diagnostic model in the Validation set.</span>
+<span class="c1"># Cutoff: The sensitivity, specificity, and accuracy performance of the diagnostic model when the threshold is set to 0.5.</span>
+<span class="c1"># ROC_Model_plot: The ROC curve plot of the diagnostic model in the Validation set.</span>
+<span class="c1"># ROC_Gene_plot: The ROC curve plot of the diagnostic model and its genes in the Validation set.</span>
+<span class="c1"># ROC_Model_data: The data used to plot the ROC curve of the diagnostic model in the Validation set.</span>
+<span class="c1"># ROC_Gene_data: The data used to plot the ROC curve of the diagnostic model and its genes in the Validation set.</span>
+</pre></div>
+</div>
+<p><img alt="图片描述" src="file:///F:/R_LT/20250126%20UniQuant/101.image/2.ROC_Model_Validation.png" /></p>
+<p><span style="font-size: 20px;">⭕
+<strong>You can extract the data from <code>rst_Validation</code> and plot the receiver operating characteristic (ROC) curve of the diagnostic model for the Validation set.</strong>
+</span></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>rst_Validation$ROC_Gene_plot
+</pre></div>
+</div>
+<p><img alt="图片描述" src="file:///F:/R_LT/20250126%20UniQuant/101.image/2.ROC_Gene_Validation.png" /></p>
+<section id="id5">
+<h4><a class="headerlink" href="#id5" title="Link to this heading"></a></h4>
+</section>
+</section>
+</section>
+<section id="molecular-classification">
+<h2>4️⃣ Molecular classification<a class="headerlink" href="#molecular-classification" title="Link to this heading"></a></h2>
+<section id="classification">
+<h3>4.1 Classification<a class="headerlink" href="#classification" title="Link to this heading"></a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>rst_Class = UniQuant_Class(ls_gene = interest_gene, n_Class = 3)  
+df_Class = rst_Class$df_Class
+
+# Count the number of samples for each molecular classification
+rst_Class$df_Class_table
+Class_1 Class_2 Class_3 
+    570     690     708 
+</pre></div>
+</div>
+<p><span style="font-size: 20px;">⭕
+<strong>View the molecular classification results of all samples.</strong>
+</span></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">head</span><span class="p">(</span><span class="n">df_Class</span><span class="p">)</span>
+</pre></div>
+</div>
+<div align="center">   <table border="1" class="docutils">
+<thead>
+<tr>
+<th style="text-align: center;">Sample</th>
+<th style="text-align: center;">Class</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">GSE102079@GSM2723193</td>
+<td style="text-align: center;">Class_1</td>
+</tr>
+<tr>
+<td style="text-align: center;">GSE102079@GSM2723195</td>
+<td style="text-align: center;">Class_2</td>
+</tr>
+<tr>
+<td style="text-align: center;">GSE102079@GSM2723197</td>
+<td style="text-align: center;">Class_2</td>
+</tr>
+<tr>
+<td style="text-align: center;">GSE102079@GSM2723198</td>
+<td style="text-align: center;">Class_1</td>
+</tr>
+<tr>
+<td style="text-align: center;">GSE102079@GSM2723199</td>
+<td style="text-align: center;">Class_3</td>
+</tr>
+<tr>
+<td style="text-align: center;">GSE102079@GSM2723200</td>
+<td style="text-align: center;">Class_2</td>
+</tr>
+</tbody>
+</table></div>  </section>
+<hr class="docutils" />
+<section id="survival-analysis">
+<h3>4.2 Survival analysis<a class="headerlink" href="#survival-analysis" title="Link to this heading"></a></h3>
+<p><span style="font-size: 20px;">⭕
+<strong>Analyze the impact of molecular classification on patient survival outcomes in the specified dataset.</strong>
+</span></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>library(survival); library(survminer)  
+dir_in = file.path(getwd(), &#39;1.Quantile&#39;)  
+dir_result = file.path(getwd(), &#39;2.UniQuant&#39;)
+
+ls_dataset = &#39;GSE14520&#39;  
+
+df_Disease = readRDS(file.path(dir_in, paste0(ls_dataset, &#39;@Disease.rds&#39;)))
+df_Class = readRDS(file.path(dir_result, &#39;df_Class.rds&#39;))
+
+df_Disease = df_Disease[!is.na(df_Disease$Time),]
+df_Class_tmp &lt;- df_Class[df_Class$Sample %in% df_Disease$Sample,]
+df_Disease_Class = merge(df_Disease, df_Class_tmp, by = &#39;Sample&#39;)
+unique_Class &lt;- as.character(sort(unique(df_Disease_Class$Class)))
+
+sfit = survfit(Surv(Time, Outcome)~Class, data = df_Disease_Class)
+p &lt;- ggsurvplot(sfit, pval = TRUE, data = df_Disease_Class, risk.table = FALSE, 
+                legend.title = &quot;Class&quot;,
+                legend.labs = unique_Class,
+                legend = &quot;right&quot;,
+                pval.size = 10,
+                pval.coord = c(0.1,0.1),
+                palette = c(&quot;#F8766D&quot;, &quot;#00BA38&quot;, &quot;#619CFF&quot;)
+)
+
+p$plot &lt;- p$plot + theme(legend.title = element_text(face = &quot;bold&quot;, size = 15)); p
+</pre></div>
+</div>
+<p><img alt="图片描述" src="file:///F:/R_LT/20250126%20UniQuant/101.image/Survival_GSE14520.png" /></p>
+<section id="id6">
+<h4><a class="headerlink" href="#id6" title="Link to this heading"></a></h4>
+</section>
+</section>
+</section>
+<section id="differential-gene-expression-deg-analysis">
+<h2>5️⃣ Differential gene expression (DEG) analysis.<a class="headerlink" href="#differential-gene-expression-deg-analysis" title="Link to this heading"></a></h2>
+<section id="deg-disease">
+<h3>5.1 DEG：Disease<a class="headerlink" href="#deg-disease" title="Link to this heading"></a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Perform DEG analysis based on the disease status of the samples</span>
+<span class="n">rst_DEG_Disease</span> <span class="o">=</span> <span class="n">UniQuant_DEG_Disease</span><span class="p">(</span><span class="n">dataset_threshold</span> <span class="o">=</span> <span class="mf">0.7</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="deg-class">
+<h3>5.2 DEG：Class<a class="headerlink" href="#deg-class" title="Link to this heading"></a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># Perform DEG analysis based on the molecular classification of the samples
+rst_DEG_Class = UniQuant_DEG_Class(
+  input_Class = rst_Class$df_Class,
+  Class_test = &#39;Class_3&#39;,  
+  Class_control = c(&#39;Class_1&#39;, &#39;Class_2&#39;),
+  dataset_threshold = 0.7)
+</pre></div>
+</div>
+<p>6️⃣  7️⃣ 8️⃣ 9️⃣</p>
+<section id="id7">
+<h4><a class="headerlink" href="#id7" title="Link to this heading"></a></h4>
+</section>
+</section>
+</section>
+</section>
+<section id="all-functions">
+<h1>All functions 🔧<a class="headerlink" href="#all-functions" title="Link to this heading"></a></h1>
+<section id="id8">
+<h2>Quantile_score<a class="headerlink" href="#id8" title="Link to this heading"></a></h2>
+<p><span style="font-size: 20px;">🚩
+Converts raw expression data of a dataset into quantile-based scores and organizes the disease status of the samples.
+</span></p>
+<div align="center"><table border="1" class="docutils">
+<thead>
+<tr>
+<th style="text-align: center;">Parameter</th>
+<th style="text-align: center;">Type</th>
+<th style="text-align: center;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">dataset_name</td>
+<td style="text-align: center;">Character</td>
+<td style="text-align: center;"><div style="white-space: normal;">Name of the dataset.</div></td>
+</tr>
+<tr>
+<td style="text-align: center;">dataset_expression</td>
+<td style="text-align: center;">Data.frame</td>
+<td style="text-align: center;"><div style="white-space: normal;">Raw expression data, with genes as rows and samples as columns.</div></td>
+</tr>
+<tr>
+<td style="text-align: center;">dataset_type</td>
+<td style="text-align: center;">Character</td>
+<td style="text-align: center;"><div style="white-space: normal;"><strong>'Training'</strong> or <strong>'Validation'</strong>.</div></td>
+</tr>
+<tr>
+<td style="text-align: center;">dataset_disease</td>
+<td style="text-align: center;">Data.frame</td>
+<td style="text-align: center;"><div style="white-space: normal;">The first column is the sample name, the second column is the disease status ('No' represents non-diseased samples, 'Yes' represents diseased samples). If survival information is available, the third column is the survival status (0 represents survival, 1 represents death), and the fourth column is the follow-up time (in months). Non-diseased samples do not need to have survival information filled in.</div></td>
+</tr>
+</tbody>
+</table></div></section>
+<hr class="docutils" />
+<section id="uniquant-hypervariable-gene">
+<h2>UniQuant_Hypervariable_gene<a class="headerlink" href="#uniquant-hypervariable-gene" title="Link to this heading"></a></h2>
+<p><span style="font-size: 20px;">🚩
+Select the hypervariable genes that are expressed across the majority of the datasets.
+</span></p>
+<div align="center">   <table border="1" class="docutils">
+<thead>
+<tr>
+<th style="text-align: center;">Parameter</th>
+<th style="text-align: center;">Type</th>
+<th style="text-align: center;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">n_hypervariable_gene</td>
+<td style="text-align: center;">Integer</td>
+<td style="text-align: center;"><div style="white-space: normal;"><strong>1-3000</strong>. The number of hypervariable genes selected from each dataset.</div></td>
+</tr>
+<tr>
+<td style="text-align: center;">dataset_threshold</td>
+<td style="text-align: center;">Numeric</td>
+<td style="text-align: center;"><div style="white-space: normal;"><strong>0-1.0</strong>. The minimum proportion of datasets in which the selected genes must be expressed.</div></td>
+</tr>
+<tr>
+<td style="text-align: center;"></div></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table></section>
+<hr class="docutils" />
+<section id="uniquant-disease-gene">
+<h2>UniQuant_Disease_gene<a class="headerlink" href="#uniquant-disease-gene" title="Link to this heading"></a></h2>
+<p><span style="font-size: 20px;">🚩
+Select disease-related genes with high AUC from the Training set.
+</span></p>
+<div align="center">   <table border="1" class="docutils">
+<thead>
+<tr>
+<th style="text-align: center;">Parameter</th>
+<th style="text-align: center;">Type</th>
+<th style="text-align: center;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">ls_gene</td>
+<td style="text-align: center;">Vector</td>
+<td style="text-align: center;"><div style="white-space: normal;">The vector containing multiple genes.</div></td>
+</tr>
+<tr>
+<td style="text-align: center;">disease_threshold</td>
+<td style="text-align: center;">Numeric</td>
+<td style="text-align: center;"><div style="white-space: normal;"><strong>0-1.0</strong>. The minimum proportion of datasets in which the selected genes must be expressed.</div></td>
+</tr>
+<tr>
+<td style="text-align: center;"></div></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table></section>
+<hr class="docutils" />
+<section id="uniquant-model-training">
+<h2>UniQuant_Model_Training<a class="headerlink" href="#uniquant-model-training" title="Link to this heading"></a></h2>
+<p><span style="font-size: 20px;">🚩
+Build a disease diagnostic model using the integrated training dataset.
+</span></p>
+<div align="center">   <table border="1" class="docutils">
+<thead>
+<tr>
+<th style="text-align: center;">Parameter</th>
+<th style="text-align: center;">Type</th>
+<th style="text-align: center;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">ls_gene</td>
+<td style="text-align: center;">Vector</td>
+<td style="text-align: center;"><div style="white-space: normal;">The vector containing multiple genes.</div></td>
+</tr>
+<tr>
+<td style="text-align: center;">disease_threshold</td>
+<td style="text-align: center;">Numeric</td>
+<td style="text-align: center;"><div style="white-space: normal;"><strong>0-1.0</strong>. The minimum proportion of datasets in which the selected genes must be expressed.</div></td>
+</tr>
+<tr>
+<td style="text-align: center;"></div></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table></section>
+<hr class="docutils" />
+<section id="uniquant-model-validation">
+<h2>UniQuant_Model_Validation<a class="headerlink" href="#uniquant-model-validation" title="Link to this heading"></a></h2>
+<p><span style="font-size: 20px;">🚩
+Analyze the performance of the disease diagnostic model using the integrated validation dataset.
+</span></p>
+</section>
+<hr class="docutils" />
+<section id="uniquant-model-dataset-auc">
+<h2>UniQuant_Model_dataset_AUC<a class="headerlink" href="#uniquant-model-dataset-auc" title="Link to this heading"></a></h2>
+<p><span style="font-size: 20px;">🚩
+Analyze the diagnostic performance of the disease diagnostic model across all datasets.
+</span></p>
+</section>
+<hr class="docutils" />
+<section id="uniquant-remove-dataset">
+<h2>UniQuant_Remove_dataset<a class="headerlink" href="#uniquant-remove-dataset" title="Link to this heading"></a></h2>
+<p><span style="font-size: 20px;">🚩
+Remove the specified dataset.
+</span></p>
+<div align="center">   <table border="1" class="docutils">
+<thead>
+<tr>
+<th style="text-align: center;">Parameter</th>
+<th style="text-align: center;">Type</th>
+<th style="text-align: center;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">dataset_name</td>
+<td style="text-align: center;">Character</td>
+<td style="text-align: center;"><div style="white-space: normal;">Name of the dataset.</div></td>
+</tr>
+</tbody>
+</table></div>   </section>
+<hr class="docutils" />
+<section id="uniquant-class">
+<h2>UniQuant_Class<a class="headerlink" href="#uniquant-class" title="Link to this heading"></a></h2>
+<p><span style="font-size: 20px;">🚩
+Perform molecular classification of disease samples based on the integrated dataset.
+</span></p>
+<div align="center">   <table border="1" class="docutils">
+<thead>
+<tr>
+<th style="text-align: center;">Parameter</th>
+<th style="text-align: center;">Type</th>
+<th style="text-align: center;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">ls_gene</td>
+<td style="text-align: center;">Vector</td>
+<td style="text-align: center;"><div style="white-space: normal;">A vector containing a list of genes to be processed.</div></td>
+</tr>
+<tr>
+<td style="text-align: center;">n_Class</td>
+<td style="text-align: center;">Integer</td>
+<td style="text-align: center;"><div style="white-space: normal;">The number of molecular classifications to be used.</div></td>
+</tr>
+<tr>
+<td style="text-align: center;">method</td>
+<td style="text-align: center;">Character</td>
+<td style="text-align: center;"><div style="white-space: normal;">The method for classification, either <strong>'CCP'</strong> or <strong>'NMF'</strong>.</div></td>
+</tr>
+</tbody>
+</table></div>   </section>
+<hr class="docutils" />
+<section id="uniquant-deg-disease">
+<h2>UniQuant_DEG_Disease<a class="headerlink" href="#uniquant-deg-disease" title="Link to this heading"></a></h2>
+<p><span style="font-size: 20px;">🚩
+Perform differential gene expression analysis between disease and non-disease samples.
+</span></p>
+<div align="center">   <table border="1" class="docutils">
+<thead>
+<tr>
+<th style="text-align: center;">Parameter</th>
+<th style="text-align: center;">Type</th>
+<th style="text-align: center;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">disease_threshold</td>
+<td style="text-align: center;">Numeric</td>
+<td style="text-align: center;"><div style="white-space: normal;"><strong>0-1.0</strong>. The minimum proportion of datasets in which the selected genes must be expressed.</div></td>
+</tr>
+</tbody>
+</table></div>   </section>
+<hr class="docutils" />
+<section id="uniquant-deg-class">
+<h2>UniQuant_DEG_Class<a class="headerlink" href="#uniquant-deg-class" title="Link to this heading"></a></h2>
+<p><span style="font-size: 20px;">🚩
+Perform differential gene expression analysis between different molecular classification.
+</span></p>
+<div align="center">   <table border="1" class="docutils">
+<thead>
+<tr>
+<th style="text-align: center;">Parameter</th>
+<th style="text-align: center;">Type</th>
+<th style="text-align: center;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">input_Class</td>
+<td style="text-align: center;">Data.frame</td>
+<td style="text-align: center;"><div style="white-space: normal;">The first column represents the samples, and the second column represents the molecular classification.</div></td>
+</tr>
+<tr>
+<td style="text-align: center;">Class_test</td>
+<td style="text-align: center;">Character</td>
+<td style="text-align: center;"><div style="white-space: normal;">The target molecular classification for differential expression analysis. </div></td>
+</tr>
+<tr>
+<td style="text-align: center;">Class_control</td>
+<td style="text-align: center;">Vector</td>
+<td style="text-align: center;"><div style="white-space: normal;">The contrast molecular classification for differential expression analysis.</div></td>
+</tr>
+<tr>
+<td style="text-align: center;">disease_threshold</td>
+<td style="text-align: center;">Numeric</td>
+<td style="text-align: center;"><div style="white-space: normal;"><strong>0-1.0</strong>. The minimum proportion of datasets in which the selected genes must be expressed.</div></td>
+</tr>
+</tbody>
+</table></div>   </section>
+<hr class="docutils" />
+<section id="uniquant-dataset">
+<h2>UniQuant_dataset<a class="headerlink" href="#uniquant-dataset" title="Link to this heading"></a></h2>
+<p><span style="font-size: 20px;">🚩
+View information about the dataset.
+</span></p>
+<div align="center">   <table border="1" class="docutils">
+<thead>
+<tr>
+<th style="text-align: center;">Parameter</th>
+<th style="text-align: center;">Type</th>
+<th style="text-align: center;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">Sample</td>
+<td style="text-align: center;">Logical</td>
+<td style="text-align: center;"><div style="white-space: normal;">If <strong>TRUE</strong>, counts the number of diseased and non-diseased samples.</div></td>
+</tr>
+</tbody>
+</table></div>   <section id="id9">
+<h3><a class="headerlink" href="#id9" title="Link to this heading"></a></h3>
+</section>
+</section>
+</section>
+<section id="reference">
+<h1>Reference 🔖<a class="headerlink" href="#reference" title="Link to this heading"></a></h1>
+<p><strong>Huanhou Su</strong> et al. Deciphering the Oncogenic Landscape of Hepatocytes through Integrated Single-Nucleus and Bulk RNA-Seq of Hepatocellular Carcinoma. <em><strong>Advanced Science</strong></em>. 2025. DOI: [10.1002/advs.202412944]</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
+        <a href="index.html" class="btn btn-neutral float-left" title="UniQuant documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2025, Huanhou Su。</p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用的 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a> 开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
