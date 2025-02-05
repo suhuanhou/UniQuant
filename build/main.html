@@ -9,7 +9,6 @@
   <title>UniQuant 🧬 &mdash; UniQuant 1.0.0 文档</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
-      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=6ad546ec" />
 
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
@@ -460,7 +459,7 @@ Disease_gene
 <span class="c1"># ROC_Gene_data: The data used to plot the ROC curve of the diagnostic model and its genes in the Training set.</span>
 </pre></div>
 </div>
-<p><img alt="图片描述" src="file:///F:/R_LT/20250126%20UniQuant/101.image/2.ROC_Model_Training.png" /></p>
+<p><img alt="图片描述" src="_images/2.ROC_Model_Training.png" /></p>
 <p><span style="font-size: 20px;">⭕
 <strong>You can extract the data from <code>rst_Training</code> and plot the receiver operating characteristic (ROC) curve of the diagnostic model for the Training set.</strong>
 </span></p>
@@ -479,7 +478,7 @@ p = ggroc(res, legacy.axes = TRUE)+
   annotate(&quot;text&quot;, x=0.50, y=0.02, size = 7.5, label=paste(&quot;Model-AUC = &quot;, round(res$Model$auc,3))); p
 </pre></div>
 </div>
-<p><img alt="图片描述" src="file:///F:/R_LT/20250126%20UniQuant/101.image/2.ROC_Gene_Training.png" /></p>
+<p><img alt="图片描述" src="_images/2.ROC_Gene_Training.png" /></p>
 <p><span style="font-size: 20px;">⭕
 <strong>View the model genes and their corresponding coefficients.</strong>
 </span></p>
@@ -586,7 +585,7 @@ p2 = p1 +
   ); p2
 </pre></div>
 </div>
-<p><img alt="图片描述" src="file:///F:/R_LT/20250126%20UniQuant/101.image/2.coefficient.png" /></p>
+<p><img alt="图片描述" src="_images/2.coefficient.png" /></p>
 </section>
 <hr class="docutils" />
 <section id="validation-of-diagnostic-model">
@@ -605,14 +604,14 @@ p2 = p1 +
 <span class="c1"># ROC_Gene_data: The data used to plot the ROC curve of the diagnostic model and its genes in the Validation set.</span>
 </pre></div>
 </div>
-<p><img alt="图片描述" src="file:///F:/R_LT/20250126%20UniQuant/101.image/2.ROC_Model_Validation.png" /></p>
+<p><img alt="图片描述" src="_images/2.ROC_Model_Validation.png" /></p>
 <p><span style="font-size: 20px;">⭕
 <strong>You can extract the data from <code>rst_Validation</code> and plot the receiver operating characteristic (ROC) curve of the diagnostic model for the Validation set.</strong>
 </span></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>rst_Validation$ROC_Gene_plot
 </pre></div>
 </div>
-<p><img alt="图片描述" src="file:///F:/R_LT/20250126%20UniQuant/101.image/2.ROC_Gene_Validation.png" /></p>
+<p><img alt="图片描述" src="_images/2.ROC_Gene_Validation.png" /></p>
 <section id="id5">
 <h4><a class="headerlink" href="#id5" title="Link to this heading"></a></h4>
 </section>
@@ -704,7 +703,7 @@ p &lt;- ggsurvplot(sfit, pval = TRUE, data = df_Disease_Class, risk.table = FALS
 p$plot &lt;- p$plot + theme(legend.title = element_text(face = &quot;bold&quot;, size = 15)); p
 </pre></div>
 </div>
-<p><img alt="图片描述" src="file:///F:/R_LT/20250126%20UniQuant/101.image/Survival_GSE14520.png" /></p>
+<p><img alt="图片描述" src="_images/Survival_GSE14520.png" /></p>
 <section id="id6">
 <h4><a class="headerlink" href="#id6" title="Link to this heading"></a></h4>
 </section>

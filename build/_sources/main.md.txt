@@ -234,7 +234,7 @@ names(rst_Training)
 # ROC_Model_data: The data used to plot the ROC curve of the diagnostic model in the Training set.
 # ROC_Gene_data: The data used to plot the ROC curve of the diagnostic model and its genes in the Training set.
 ```
-![图片描述](file:///F:/R_LT/20250126%20UniQuant/101.image/2.ROC_Model_Training.png)
+![图片描述](/image/2.ROC_Model_Training.png)
 
 
 
@@ -256,7 +256,7 @@ p = ggroc(res, legacy.axes = TRUE)+
   ) + labs(colour = "Gene") + 
   annotate("text", x=0.50, y=0.02, size = 7.5, label=paste("Model-AUC = ", round(res$Model$auc,3))); p
 ```
-![图片描述](file:///F:/R_LT/20250126%20UniQuant/101.image/2.ROC_Gene_Training.png)
+![图片描述](/image/2.ROC_Gene_Training.png)
 
 
 <span style="font-size: 20px;">⭕
@@ -325,7 +325,7 @@ p2 = p1 +
     legend.text = element_text(size = 12) 
   ); p2
 ```
-![图片描述](file:///F:/R_LT/20250126%20UniQuant/101.image/2.coefficient.png)
+![图片描述](/image/2.coefficient.png)
 
 
 ---
@@ -346,7 +346,7 @@ names(rst_Validation)
 # ROC_Model_data: The data used to plot the ROC curve of the diagnostic model in the Validation set.
 # ROC_Gene_data: The data used to plot the ROC curve of the diagnostic model and its genes in the Validation set.
 ```
-![图片描述](file:///F:/R_LT/20250126%20UniQuant/101.image/2.ROC_Model_Validation.png)
+![图片描述](/image/2.ROC_Model_Validation.png)
 
 <span style="font-size: 20px;">⭕
 **You can extract the data from <code>rst_Validation</code> and plot the receiver operating characteristic (ROC) curve of the diagnostic model for the Validation set.**
@@ -354,7 +354,7 @@ names(rst_Validation)
 ```
 rst_Validation$ROC_Gene_plot
 ```
-![图片描述](file:///F:/R_LT/20250126%20UniQuant/101.image/2.ROC_Gene_Validation.png)
+![图片描述](/image/2.ROC_Gene_Validation.png)
 
 
 
@@ -431,7 +431,7 @@ p <- ggsurvplot(sfit, pval = TRUE, data = df_Disease_Class, risk.table = FALSE,
 p$plot <- p$plot + theme(legend.title = element_text(face = "bold", size = 15)); p
 ```
 
-![图片描述](file:///F:/R_LT/20250126%20UniQuant/101.image/Survival_GSE14520.png)
+![图片描述](/image/Survival_GSE14520.png)
 
 
 #####   
