@@ -325,7 +325,7 @@ p2 = p1 +
     legend.text = element_text(size = 12) 
   ); p2
 ```
-![图片描述](/image/2.coefficient.png)
+![图片描述](./image/2.coefficient.png)
 
 
 ---
