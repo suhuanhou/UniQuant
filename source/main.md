@@ -432,7 +432,9 @@ p$plot <- p$plot + theme(legend.title = element_text(face = "bold", size = 15));
 ```
 
 ![图片描述](/image/Survival_GSE14520.png)
-
+![图片描述](./Survival_GSE14520.png)
+![图片描述](/Survival_GSE14520.png)
+![图片描述](_static/Survival_GSE14520.png)
 
 #####   
 
