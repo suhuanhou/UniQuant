@@ -346,7 +346,7 @@ names(rst_Validation)
 # ROC_Model_data: The data used to plot the ROC curve of the diagnostic model in the Validation set.
 # ROC_Gene_data: The data used to plot the ROC curve of the diagnostic model and its genes in the Validation set.
 ```
-![图片描述](/image/2.ROC_Model_Validation.png)
+![图片描述](./image/2.ROC_Model_Validation.png)
 
 <span style="font-size: 20px;">⭕
 **You can extract the data from <code>rst_Validation</code> and plot the receiver operating characteristic (ROC) curve of the diagnostic model for the Validation set.**
@@ -354,7 +354,7 @@ names(rst_Validation)
 ```
 rst_Validation$ROC_Gene_plot
 ```
-![图片描述](/image/2.ROC_Gene_Validation.png)
+![图片描述](./image/2.ROC_Gene_Validation.png)
 
 
 
