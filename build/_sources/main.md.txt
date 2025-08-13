@@ -2,14 +2,13 @@
 
 
 # UniQuant  🧬
-🧰 Name: **Universal Quantile-Based Transcriptome Integration (R package) **
-✍️ Author: **Huanhou Su**
+🧰 **Name**: Universal Quantile-Based Transcriptome Integration (R package)    
 
-**Symbol**  
-🚩 - Functions; ⭕ - Optional operations; ❓ - Questions  
+📝 **Note**: UniQuant is a dynamic quantile normalization method for cross-platform heterogeneous data that effectively integrates RNA expression data from different platforms, batches, and formats. UniQuant eliminates batch effects and background differences between datasets, thereby generating more accurate and reliable integrated data, significantly improving the accuracy, reliability, and versatility of data analysis. The datasets integrated based on UniQuant can be used for building disease diagnosis models, molecular classification, survival analysis, differential gene expression analysis, and more.
 
-📌 - 
-📝 - Note
+✍️ **Author**: Huanhou Su
+
+
 
 
 # Quick run  🚀
