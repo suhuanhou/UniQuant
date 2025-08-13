@@ -2,18 +2,14 @@
 
 
 # UniQuant  🧬
-🧰 Name: Universal Quantile-Based Transcriptome Integration (R package)  
-✍️ Author: Huanhou Su
+🧰 Name: **Universal Quantile-Based Transcriptome Integration (R package) **
+✍️ Author: **Huanhou Su**
 
 **Symbol**  
-🚩 - Functions  
+🚩 - Functions; ⭕ - Optional operations; ❓ - Questions  
 
-⭕ - Optional operations  
-
-❓ - Questions  
-
-
-❌ ❗ ‼️ ⁉️ ⭕ ✖️ ➕ ➖ ➗ ✔️ 👀❗❓
+📌 - 
+📝 - Note
 
 
 # Quick run  🚀
@@ -27,20 +23,28 @@
 Quantile_score(ls_datasset, df_raw, dataset_type, df_Disease)
 
 ##### 2. Select the genes of interest
+# Identify the top 1000 hypervariable genes from independent datasets and select those expressed across datasets.
 rst_Hype = UniQuant_Hypervariable_gene(n_hypervariable_gene = 1000)  
 interest_gene = rst_Hype$Gene
 
-##### 3. Training and Validation of the Diagnostic Model
+##### 3. Training the diagnostic model
+# Use the interest genes to identify disease-related genes.
 rst_dg = UniQuant_Disease_gene(ls_gene = interest_gene)  
 Disease_gene = rst_dg$Disease_gene
 
+# Train the diagnostic model using the identified disease-related genes.
 rst_Training = UniQuant_Model_Training(ls_gene = Disease_gene) 
+
+##### 4. Validation of the diagnostic model
 rst_Validation = UniQuant_Model_Validation()
 
-##### 4. Molecular classification
+##### 5. Molecular classification
+# Perform molecular classification based on the selected genes of interest and classify into 3 groups.
 rst_Class = UniQuant_Class(ls_gene = interest_gene, n_Class = 3)  
 
-##### 5. Subsequent analyses: survival analysis, differential gene expression analysis, enrichment analysis, etc.
+##### 6. Subsequent analyses
+# Perform additional analyses such as survival analysis, differential gene expression analysis, and enrichment analysis.
+# These steps may follow depending on your dataset and goals.
 ```
 
 #####    
@@ -49,10 +53,12 @@ rst_Class = UniQuant_Class(ls_gene = interest_gene, n_Class = 3)
 # Comprehensive Guide  📖
 ## 0️⃣ Setting
 ```
-library(ggplot2); library(edgeR) ; library(pROC); library(stringr)
+library(UniQuant);library(ggplot2); library(edgeR); library(pROC); library(stringr)
 
 dir_main = getwd()
 dir_in = file.path(dir_main, '0.raw')
+dir_dataset = file.path(dir_main, 'UniQuant', 'dataset'); if(!dir.exists(dir_dataset)) dir.create(dir_result, recursive = TRUE)
+dir_result = file.path(dir_main, 'UniQuant', 'result'); if(!dir.exists(dir_result)) dir.create(dir_result, recursive = TRUE)
 setwd(dir_main); set.seed(100)
 ```
 
@@ -108,12 +114,12 @@ df_raw[1:4, 1:4]
 
 <div align="center"> 
 
-|         | GSM890128 | GSM890129 | GSM890130 | GSM890131 |
-|:-------------:|:-----------:|:-----------:|:-----------:|:-----------:|
-| EEF1A1      | 14.054179 | 14.395189 | 14.349301 | 14.183636 |
-| LOC643334   | 6.543733  | 6.399822  | 6.391479  | 6.190396  |
-| SLC35E2     | 6.065169  | 6.172510  | 5.957617  | 5.980207  |
-| LOC642820   | 6.862825  | 6.699461  | 6.726557  | 6.664170  |
+|                 |   GSM890128   |   GSM890129   |   GSM890130   |   GSM890131   |
+|:---------------:|:-------------:|:-------------:|:-------------:|:-------------:|
+|     EEF1A1      |   14.054179   |   14.395189   |   14.349301   |   14.183636   |
+|    LOC643334    |   6.543733    |   6.399822    |   6.391479    |   6.190396    |
+|     SLC35E2     |   6.065169    |   6.172510    |   5.957617    |   5.980207    |
+|    LOC642820    |   6.862825    |   6.699461    |   6.726557    |   6.664170    |
 
 </div>   
 
@@ -125,12 +131,12 @@ df_raw[1:4, 1:4]
 
 <div align="center">  
 
-|             |  GSE36376@GSM890128  |  GSE36376@GSM890129  | GSE36376@GSM890130 | GSE36376@GSM890131 |
-|:------------:|:--------------------:|:--------------------:|:--------------------:|:--------------------:|
-| EEF1A1      |          4           |          9           | 8                  | 6                  |
-| LOC643334   |          10          |          8           | 8                  | 4                  |
-| SLC35E2     |          4           |          7           | 2                  | 2                  |
-| LOC642820   |          9           |          5           | 6                  | 4                  |
+|                |  GSE36376@GSM890128  |  GSE36376@GSM890129  | GSE36376@GSM890130 | GSE36376@GSM890131 |
+|:--------------:|:--------------------:|:--------------------:|:--------------------:|:--------------------:|
+|     EEF1A1     |          4           |          9           | 8                  | 6                  |
+|   LOC643334    |          10          |          8           | 8                  | 4                  |
+|    SLC35E2     |          4           |          7           | 2                  | 2                  |
+|   LOC642820    |          9           |          5           | 6                  | 4                  |
 
 </div>   
 
@@ -169,12 +175,12 @@ head(df_Disease, 4)
 
 <div align="center">  
 
-| Sample     | Disease | Outcome | Time |
-|------------|---------|---------|------|
-| GSM362958  | Yes     | 1       | 28.2 |
-| GSM362959  | Yes     | 1       | 9.5  |
-| GSM362960  | Yes     | 0       | 66.1 |
-| GSM362961  | No      |       |    |
+|    Sample    |  Disease  |   Outcome   |   Time   |
+|:------------:|:---------:|:-----------:|:--------:|
+|  GSM362958   |    Yes    |      1      |   28.2   |
+|  GSM362959   |    Yes    |      1      |   9.5    |
+|  GSM362960   |    Yes    |      0      |   66.1   |
+|  GSM362961   |    No     |             |          |
 
 </div>   
 
@@ -202,10 +208,11 @@ interest_gene
 
 #####   
 
-## 3️⃣ Diagnostic model
+## 3️⃣ Training the diagnostic model
 ### 3.1 Disease-related gene
 ```
-rst_dg = UniQuant_Disease_gene(ls_gene = interest_gene, disease_threshold = 0.7)  
+# Use the interest genes to identify disease-related genes.
+rst_dg = UniQuant_Disease_gene(ls_gene = interest_gene, AUC_threshold = 0.7)  
 Disease_gene = rst_dg$Disease_gene
 
 Disease_gene
@@ -216,7 +223,7 @@ Disease_gene
 ```
 ---
 
-### 3.2 Training diagnostic model
+### 3.2 Train the model with disease-related genes
 
 ```
 rst_Training = UniQuant_Model_Training(ls_gene = Disease_gene) 
@@ -268,21 +275,21 @@ rst_Training$Coefficient
 ```  
 <div align="center">   
 
-| gene   | coefficient  |
-|--------|--------------|
-| DCN    | -0.33802661  |
-| CYP1A2 | -0.26176605  |
-| HAMP   | -0.26145613  |
-| FOS    | -0.24085125  |
-| CCL19  | -0.17432534  |
-| MME    | -0.16998127  |
-| APOA4  | -0.16885766  |
-| PEG10  | -0.08975637  |
-| HSD11B1| 0.13580332   |
-| SPINK1 | 0.15481402   |
-| GPC3   | 0.21975622   |
-| CTHRC1 | 0.24801502   |
-| AKR1B10| 0.25147663   |
+|   gene   |  coefficient   |
+|:--------:|:--------------:|
+|   DCN    |  -0.33802661   |
+|  CYP1A2  |  -0.26176605   |
+|   HAMP   |  -0.26145613   |
+|   FOS    |  -0.24085125   |
+|  CCL19   |  -0.17432534   |
+|   MME    |  -0.16998127   |
+|  APOA4   |  -0.16885766   |
+|  PEG10   |  -0.08975637   |
+| HSD11B1  |   0.13580332   |
+|  SPINK1  |   0.15481402   |
+|   GPC3   |   0.21975622   |
+|  CTHRC1  |   0.24801502   |
+| AKR1B10  |   0.25147663   |
 
 </div>  
 
@@ -330,8 +337,8 @@ p2 = p1 +
 
 ---
 
-
-### 3.3 Validation of diagnostic model
+##### 
+## 4️⃣ Validation of diagnostic model
 ```
 rst_Validation = UniQuant_Model_Validation()
 
@@ -361,9 +368,10 @@ rst_Validation$ROC_Gene_plot
 
 
 #####   
-## 4️⃣ Molecular classification
-### 4.1 Classification 
+## 5️⃣ Molecular classification
+### 5.1 Classification 
 ```
+# Perform molecular classification of disease samples based on the integrated dataset.
 rst_Class = UniQuant_Class(ls_gene = interest_gene, n_Class = 3)  
 df_Class = rst_Class$df_Class
 
@@ -397,7 +405,60 @@ head(df_Class)
 
 ---
 
-### 4.2 Survival analysis
+### 5.2 Gene contribution 
+<span style="font-size: 20px;">⭕
+**Using machine learning methods to calculate the contribution of genes to molecular classification.**
+</span>
+
+```
+# num_Top: Number of top genes to display based on their contribution score.
+# n_Train: Number of classification training tasks.
+rst_Contribution = UniQuant_Class_Contribution(num_Top = 20, n_Train = 2)
+
+rst_Contribution$Acc
+    Class Accuracy
+  Class_1    0.984
+  Class_2    0.990
+  Class_3    0.983
+```
+
+```
+# Display the contribution of genes to molecular typing in a table format
+head(rst_Contribution$Contribution)
+```
+<div align="center">   
+
+| Gene    | Class_1        | Class_2        | Class_3        |
+|:-------:|:--------------:|:--------------:|:--------------:|
+| ACSL4   | 0.0125754340   | 0.0204913958   | 0.0018271964   |
+| AFP     | 0.0297757726   | 0.0105659208   | 0.0051961789   |
+| AKR1B10 | 0.0003743662   | 0.0006829170   | 0.0010541345   |
+| ALDH3A1 | 0.0016005614   | 0.0018106727   | 0.0007021926   |
+| APOA4   | 0.0003649859   | 0.0011380439   | 0.0006137823   |
+| APOF    | 0.0021530311   | 0.0007603114   | 0.0023867149   |
+
+
+</div>  
+
+
+```
+# Display the contribution of genes to molecular typing in a bar chart format
+rst_Contribution$Plot_bar
+```
+
+![图片描述](_static/Contribution_bar.png)
+
+
+
+```
+# Display the contribution of genes to molecular typing in a heatmap format
+rst_Contribution$Plot_heatmap
+```
+
+![图片描述](_static/Contribution_heatmap.png)
+
+---
+### 5.3 Survival analysis
 <span style="font-size: 20px;">⭕
 **Analyze the impact of molecular classification on patient survival outcomes in the specified dataset.**
 </span>
@@ -405,21 +466,18 @@ head(df_Class)
 
 ```
 library(survival); library(survminer)  
-dir_in = file.path(getwd(), '1.Quantile')  
-dir_result = file.path(getwd(), '2.UniQuant')
 
 ls_dataset = 'GSE14520'  
-
-df_Disease = readRDS(file.path(dir_in, paste0(ls_dataset, '@Disease.rds')))
+df_Disease = readRDS(file.path(dir_dataset, paste0(ls_dataset, '@Disease.rds')))
 df_Class = readRDS(file.path(dir_result, 'df_Class.rds'))
 
 df_Disease = df_Disease[!is.na(df_Disease$Time),]
-df_Class_tmp <- df_Class[df_Class$Sample %in% df_Disease$Sample,]
+df_Class_tmp = df_Class[df_Class$Sample %in% df_Disease$Sample,]
 df_Disease_Class = merge(df_Disease, df_Class_tmp, by = 'Sample')
-unique_Class <- as.character(sort(unique(df_Disease_Class$Class)))
+unique_Class = as.character(sort(unique(df_Disease_Class$Class)))
 
 sfit = survfit(Surv(Time, Outcome)~Class, data = df_Disease_Class)
-p <- ggsurvplot(sfit, pval = TRUE, data = df_Disease_Class, risk.table = FALSE, 
+p = ggsurvplot(sfit, pval = TRUE, data = df_Disease_Class, risk.table = FALSE, 
                 legend.title = "Class",
                 legend.labs = unique_Class,
                 legend = "right",
@@ -428,24 +486,41 @@ p <- ggsurvplot(sfit, pval = TRUE, data = df_Disease_Class, risk.table = FALSE,
                 palette = c("#F8766D", "#00BA38", "#619CFF")
 )
 
-p$plot <- p$plot + theme(legend.title = element_text(face = "bold", size = 15)); p
+p$plot = p$plot + theme(legend.title = element_text(face = "bold", size = 15)); p
 ```
 
 ![图片描述](_static/Survival_GSE14520.png)
 
 #####   
 
-## 5️⃣ Differential gene expression (DEG) analysis. 
+## 6️⃣ Differential gene expression (DEG) analysis. 
 
-### 5.1 DEG：Disease
+### 6.1 DEG：Disease
 ```
 # Perform DEG analysis based on the disease status of the samples
 rst_DEG_Disease = UniQuant_DEG_Disease(dataset_threshold = 0.7)
+df_DEG_Disease = rst_DEG_Disease$DEG
+
+head(df_DEG_Disease)
 ```
+
+<div align="center">   
+
+| Gene   | LogFC    | logCPM   | LR       | PValue | FDR   |
+|--------|----------|----------|----------|--------|-------|
+| CAP2   | 1.134334 | 6.434386 | 3076.955 | 0      | 0     |
+| ASPM   | 1.129646 | 6.434048 | 3052.996 | 0      | 0     |
+| TOP2A  | 1.124791 | 6.434128 | 3028.964 | 0      | 0     |
+| PRC1   | 1.116258 | 6.433803 | 2987.175 | 0      | 0     |
+| RACGAP1| 1.112615 | 6.434054 | 2969.149 | 0      | 0     |
+| CENPF  | 1.111725 | 6.433586 | 2963.983 | 0      | 0     |
+
+</div>  
+
 ---
 
 
-### 5.2 DEG：Class
+### 6.2 DEG：Class
 ```
 # Perform DEG analysis based on the molecular classification of the samples
 rst_DEG_Class = UniQuant_DEG_Class(
@@ -453,7 +528,29 @@ rst_DEG_Class = UniQuant_DEG_Class(
   Class_test = 'Class_3',  
   Class_control = c('Class_1', 'Class_2'),
   dataset_threshold = 0.7)
+
+head(df_DEG_Class)
 ```
+
+<div align="center">   
+
+| Gene   | LogFC    | logCPM   | LR       | PValue          | FDR            |
+|--------|----------|----------|----------|-----------------|----------------|
+| FGFR3  | 0.860094 | 6.350244 | 556.9723 | 3.830429e-123   | 1.962663e-120  |
+| PDE9A  | 0.857775 | 6.367620 | 503.9286 | 1.327970e-111   | 3.766691e-109  |
+| AFP    | 0.827938 | 6.476032 | 580.9512 | 2.329059e-128   | 1.541449e-125  |
+| PEG3   | 0.780960 | 6.214317 | 330.6309 | 7.004662e-74    | 5.705746e-72   |
+| PPP1R9A| 0.750667 | 6.433330 | 395.2754 | 5.880676e-88    | 7.983646e-86   |
+| EPCAM  | 0.746381 | 6.243183 | 300.1526 | 3.051573e-67    | 1.923460e-65   |
+
+</div>  
+
+<span style="font-size: 20px;">⭕
+**After obtaining the DEGs, further analyses can be conducted, such as protein-protein interaction network, Gene Set Enrichment Analysis (GSEA), transcription factor analysis, etc.**
+</span>
+
+
+
 
 
 6️⃣  7️⃣ 8️⃣ 9️⃣
@@ -500,7 +597,7 @@ Select disease-related genes with high AUC from the Training set.
 |         Parameter          |     Type     |                                                             Description                                                              |
 |:--------------------------:|:------------:|:------------------------------------------------------------------------------------------------------------------------------------:|
 |          ls_gene           |    Vector    |                            <div style="white-space: normal;">The vector containing multiple genes.</div>                             |
-|     disease_threshold      |   Numeric    | <div style="white-space: normal;">**0-1.0**. The minimum proportion of datasets in which the selected genes must be expressed.</div> |
+|     dataset_threshold      |   Numeric    | <div style="white-space: normal;">**0-1.0**. The minimum proportion of datasets in which the selected genes must be expressed.</div> |
 </div>   
 
 ---
@@ -513,7 +610,7 @@ Build a disease diagnostic model using the integrated training dataset.
 |     Parameter      |    Type    |                                                             Description                                                              |
 |:------------------:|:----------:|:------------------------------------------------------------------------------------------------------------------------------------:|
 |      ls_gene       |   Vector   |                            <div style="white-space: normal;">The vector containing multiple genes.</div>                             |
-| disease_threshold  |  Numeric   | <div style="white-space: normal;">**0-1.0**. The minimum proportion of datasets in which the selected genes must be expressed.</div> |
+
 </div>   
 
 ---
@@ -557,6 +654,22 @@ Perform molecular classification of disease samples based on the integrated data
 </div>   
 
 ---
+## UniQuant_Class_Contribution
+<span style="font-size: 20px;">🚩
+Identifies the top contributing genes based on their importance in molecular classification.
+</span>
+<div align="center">   
+
+|     Parameter      |     Type     |                                                Description                                                |
+|:------------------:|:------------:|:---------------------------------------------------------------------------------------------------------:|
+|      num_Top       |   Integer    | <div style="white-space: normal;">Number of top genes to display based on their contribution score.</div> |  
+|      n_Train       |   Integer    |             <div style="white-space: normal;">Number of classification training tasks.</div>              |  
+|      reTrain       |   Logical    |             <div style="white-space: normal;">If **TRUE**, the tasks will be retrained.</div>             |  
+
+</div>   
+
+
+---
 ## UniQuant_DEG_Disease
 <span style="font-size: 20px;">🚩
 Perform differential gene expression analysis between disease and non-disease samples.
@@ -565,7 +678,7 @@ Perform differential gene expression analysis between disease and non-disease sa
 
 |      Parameter       |     Type     |                                                             Description                                                              |
 |:--------------------:|:------------:|:------------------------------------------------------------------------------------------------------------------------------------:|
-|  disease_threshold   |   Numeric    | <div style="white-space: normal;">**0-1.0**. The minimum proportion of datasets in which the selected genes must be expressed.</div> |  
+|  dataset_threshold   |   Numeric    | <div style="white-space: normal;">**0-1.0**. The minimum proportion of datasets in which the selected genes must be expressed.</div> |  
 
 </div>   
 
@@ -581,7 +694,7 @@ Perform differential gene expression analysis between different molecular classi
 |    input_Class     | Data.frame  | <div style="white-space: normal;">The first column represents the samples, and the second column represents the molecular classification.</div> |
 |     Class_test     |  Character  |               <div style="white-space: normal;">The target molecular classification for differential expression analysis. </div>                |
 |   Class_control    |   Vector    |               <div style="white-space: normal;">The contrast molecular classification for differential expression analysis.</div>               |
-| disease_threshold  |   Numeric   |      <div style="white-space: normal;">**0-1.0**. The minimum proportion of datasets in which the selected genes must be expressed.</div>       |
+| dataset_threshold  |   Numeric   |      <div style="white-space: normal;">**0-1.0**. The minimum proportion of datasets in which the selected genes must be expressed.</div>       |
 
 </div>   
 
@@ -597,6 +710,10 @@ View information about the dataset.
 |    Sample    | Logical  | <div style="white-space: normal;">If **TRUE**, counts the number of diseased and non-diseased samples.</div> |
 
 </div>   
+
+
+
+
 
 #####  
 # Reference 🔖
